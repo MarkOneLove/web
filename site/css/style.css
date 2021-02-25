@@ -4,6 +4,92 @@ body {
   color: #f5f6f7;
 }
 
+.navbar {
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.658);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 40px;
+}
+
+.field-button {
+  background-color: rgb(149, 56, 255);
+  border-radius: 2vh;
+  border: none;
+  outline:none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.field-button:hover {
+  background-color: rgb(101, 176, 247);
+}
+
+.start {
+  background-color: rgb(149, 56, 255);
+  border-radius: 0.4vh;
+  border: none;
+  outline:none;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5vh;
+  margin-left: 5vh;
+}
+
+.start:hover {
+  background-color: rgb(101, 176, 247);
+}
+
+.clear {
+  background-color: rgb(255, 56, 132);
+  border-radius: 0.4vh;
+  border: none;
+  outline:none;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 5vh;
+  margin-left: 5vh;
+}
+
+.clear:hover {
+  background-color: rgb(101, 176, 247);
+}
+
+.label {
+  color: rgb(255, 56, 132);
+  margin-left: 5vh;
+  font-size: x-large;
+}
+
+.error {
+  margin-top: 2vh;
+  color: rgb(109, 56, 255);
+  margin-left: 5vh;
+  font-size: x-large;
+}
+
+.input {
+  border-radius: 1vh;
+  border-style: solid 1px;
+  border-color: rgb(149, 56, 255);
+  outline: none;
+  color: rgb(149, 56, 255);
+  font-weight: 600;
+  width: 100px;
+}
+
+.field {
+  margin-left: 5vh;
+  display: grid;
+}
+
 .navigation-top {
   font-weight: 1000;
   font-size: large;
@@ -28,7 +114,7 @@ body {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  background-color: rgb(189, 189, 189, 0.7);
+  background-color: rgba(250, 250, 250, 0.7);
 }
 
 .navigation-top .text2{
@@ -43,7 +129,7 @@ body {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  background-color: rgb(189, 189, 189, 0.7);
+  background-color: rgba(250, 250, 250, 0.7);
 }
 
 .navigation-top .text3{
@@ -59,7 +145,7 @@ body {
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
-  background-color: rgb(189, 189, 189, 0.7);
+  background-color: rgba(250, 250, 250, 0.7);
 }
 
 .img1 {

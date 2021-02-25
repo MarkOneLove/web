@@ -8,12 +8,13 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src=".js/script.js"></script>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-default">
+<div class="navbar" id="navbar">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -21,17 +22,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">by Mark</a>
+      <a class="navbar-brand" href="">by Mark</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <div class="navigation-top">
         <a class="text1" href="#1" style="text-decoration: none;"><span style="color:#8320bd">WHO</span></a>
         <a class="text2" href="#2" style="text-decoration: none;"><span style="color:#8320bd">WHAT</span></a>
         <a class="text3" href="#3" style="text-decoration: none;"><span style="color:#8320bd">WHERE</span></a>
+        <button class="field-button" onclick="location.href='field.html'" >Field</button>
       </div>
     </div>
   </div>
-</nav>
+</div>
 
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center" id="1">
@@ -79,6 +81,21 @@
     </div>
   </div>
 </div>
+
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var navbar = document.getElementById("navbar");
+  var sticky = navbar.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+  </script>
 
 </body>
 </html>
