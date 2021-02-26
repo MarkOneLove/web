@@ -10,7 +10,7 @@ function start() {
     console.log(n);
     if (!n.match(regex)) 
     {
-        if(n>1) {
+        if(n>=1) {
             var field = document.getElementById("field");
             field.style.cssText = `grid-template-rows: repeat(${n}, 100px); grid-template-columns: repeat(${n}, 100px);` 
             document.getElementById("error").textContent = " ";
