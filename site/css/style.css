@@ -32,6 +32,20 @@ body {
   background-color: rgb(101, 176, 247);
 }
 
+.game-button {
+  background-color: rgb(149, 56, 255);
+  border-radius: 2vh;
+  border: none;
+  outline:none;
+  margin-left: 1vh;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.game-button:hover {
+  background-color: rgb(101, 176, 247);
+}
+
 .start {
   background-color: rgb(149, 56, 255);
   border-radius: 0.4vh;
