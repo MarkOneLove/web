@@ -89,6 +89,28 @@ body {
   font-size: x-large;
 }
 
+.result {
+  margin-top: 5vh;
+  color: rgb(0, 0, 0);
+  margin-left: 5vh;
+  font-size: xx-large;
+}
+
+#seconds {
+  font-size: 5em;
+  color: rgb(0, 0, 0);
+}
+
+#minutes {
+  font-size: 5em;
+  color: rgb(0, 0, 0);
+  margin-left: 5vh;
+}
+#colon {
+  font-size: 5em;
+  color: rgb(124, 83, 219);
+}
+
 .input {
   border-radius: 1vh;
   border-style: solid 1px;

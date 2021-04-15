@@ -1,17 +1,59 @@
+var totalSeconds = 0;
+var count = true;
+
 function clean() {
     document.getElementById("field").innerHTML = '';
+    document.getElementById("result").textContent = "";
+    document.getElementById("minutes").innerHTML = "00";
+    document.getElementById("seconds").innerHTML = "00";
+    totalSeconds = 0;
+    count = false;
 }
 
 function start() {
+    
+    count = true;
+    var minutesLabel = document.getElementById("minutes");
+    var secondsLabel = document.getElementById("seconds");
+    var totalSeconds = 0;
+    var refreshIntervalId = setInterval(setTime, 1000);
+
+    function setTime()
+    {   
+        if(count) 
+        {
+            ++totalSeconds;
+            secondsLabel.innerHTML = pad(totalSeconds%60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
+        }
+        else {
+            clearInterval(refreshIntervalId);
+        }
+    }
+
+    function pad(val)
+    {
+        var valString = val + "";
+        if(valString.length < 2)
+        {
+            return "0" + valString;
+        }
+        else
+        {
+            return valString;
+        }
+    }
 
     var colors = ['red', 'darkred', 'salmon', 'gold', 'tomato', 'orangered', 'orange', 'yellow', 'khaki', 'wheat', 'seagreen', 'silver', 'azure', 'white', 'pink', 'indigo', 'purple', 'magenta', 'blue', 'darkblue', 'cyan', 'olive', 'lime', 'aquamarine', 'skyblue']; //static Colors
-    var colorNames = ['Red', 'Dark red', 'Salmon', 'Gold', 'Tomato', 'Orange red', 'Orange', 'Yellow', 'Khaki', 'Wheat', 'Sea green', 'Silver', 'Azure', 'White', 'Pink', 'Indigo', 'Purple', 'Magenta', 'Blue', 'Dark blue', 'Cyan', 'Olive', 'Lime', 'Aquamarine', 'Skyblue']; //static Names
+    var colorNames = ['Red', 'Dark red', 'Salmon', 'Gold', 'Tomato', 'Orange red', 'Orange', 'Yellow', 'Khaki', 'Wheat', 'Sea green', 'Silver', 'Azure', 'White', 'Pink', 'Indigo', 'Purple', 'Magenta', 'Blue', 'Dark blue', 'Cyan', 'Olive', 'Lime', 'Aqua marine', 'Skyblue']; //static Names
     var boxesFilled = []; // all boxes/buttons used
 
     var colorsFinal = [];
     var namesFinal = [];
 
-    click = true;
+    var click = true;
+
+    var matches = 0;
 
     var pairs = [];
 
@@ -34,9 +76,9 @@ function start() {
             {
                 var NorC = Math.floor(Math.random() * 2); // color or name
 
-                var num = Math.floor(Math.random() * (n*n))+1;
+                var num = Math.floor(Math.random() * colors.length);
                 while(used[num] == true) {
-                    num = Math.floor(Math.random() * (n*n))+1;
+                    num = Math.floor(Math.random() * colors.length);
                 }
                 used[num] = true;
 
@@ -75,10 +117,13 @@ function start() {
                 pairs[j] = rand;
             }
 
-            console.log(seq);
-            console.log(pairs);
-            console.log(colorsFinal)
-            console.log(namesFinal)
+            //console.log(seq);
+            //console.log(pairs);
+            //console.log(colorsFinal)
+            //console.log(namesFinal)
+
+            //console.log(used)
+            //console.log(boxesFilled)
 
             var field = document.getElementById("field");
             field.style.cssText = `grid-template-rows: repeat(${n}, 100px); grid-template-columns: repeat(${n}, 100px);` 
@@ -126,6 +171,7 @@ function start() {
             if(document.getElementById(this.id).style.backgroundColor == "black" && document.getElementById(this.id).textContent == "") {
                 if(opened <= 1) 
                 {
+                    openedArr[opened] = this.id; 
                     if(seq[this.id] == true) // COLOR
                     {
                         document.getElementById(this.id).style.backgroundColor = colorsFinal[this.id];
@@ -135,18 +181,14 @@ function start() {
                         document.getElementById(this.id).textContent = namesFinal[this.id];
                         document.getElementById(this.id).style.textAlign = "center";
                         document.getElementById(this.id).style.fontSize = "small";
+                        document.getElementById(this.id).style.backgroundColor = "DarkGrey";
                     }
-                    openedArr[opened] = this.id;
-
                     if(opened == 1) {
                         click = false;
-                    
                         opened = 0;
-                        console.log(pairs.indexOf(openedArr[0]))
-                        console.log(openedArr)
                         if(pairs[openedArr[0]] == openedArr[1] || pairs.indexOf(parseInt(openedArr[0])) == openedArr[1] ) 
                         {
-                            console.log("pair")
+                            matches++;
                             click = true;
                         }
                         else
@@ -164,11 +206,14 @@ function start() {
                     {
                         opened++;
                     }
-
                 }
-            return false;
+            }
+            if(matches == n*n/2) {
+                document.getElementById("result").textContent = "Game over. Your time:";
+                totalSeconds = 0;
+                clearInterval(refreshIntervalId);
             }
         }
+        return false;
     }
-
 }
