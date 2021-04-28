@@ -20,13 +20,11 @@ function start() {
         var minutesLabel = document.getElementById("minutes");
         var secondsLabel = document.getElementById("seconds");
         var totalSeconds = 0;
-        var refreshIntervalId = setInterval(setTime, 1000);
 
         function setTime()
         {   
             if(count) 
             {
-                console.log(totalSeconds)
                 ++totalSeconds;
                 secondsLabel.innerHTML = pad(totalSeconds%60);
                 minutesLabel.innerHTML = pad(parseInt(totalSeconds/60));
@@ -77,6 +75,7 @@ function start() {
         if (!n.match(regex)) 
         {
             if(n==2 || n==4 || n==6) { //2, 4, 6,
+                var refreshIntervalId = setInterval(setTime, 1000);
                 for(var j = 0; j < n*n+1; j++)  //fill seq array with c/t parameter
                 {
                     var NorC = Math.floor(Math.random() * 2); // color or name
